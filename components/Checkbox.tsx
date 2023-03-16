@@ -1,7 +1,8 @@
 interface Props {
   label: string;
+  index: number;
   isChecked: boolean;
-  onCheck: (checked: boolean) => void;
+  onCheck: (checked: boolean, index: number) => void;
 }
 
 export default function Checkbox(props: Props): JSX.Element {
@@ -11,7 +12,7 @@ export default function Checkbox(props: Props): JSX.Element {
         id={props.label}
         type="checkbox"
         checked={props.isChecked}
-        onChange={(e) => props.onCheck(e.currentTarget.checked)}
+        onChange={(e) => props.onCheck(e.currentTarget.checked, props.index)}
       />
       <label htmlFor={props.label}>{props.label}</label>
     </div>
